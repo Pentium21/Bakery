@@ -1,0 +1,45 @@
+#:import dp kivy.metrics.dp
+
+<CartScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Корзина"
+            left_action_items: [["arrow-left", lambda x: root.go_back()]]
+
+        ScrollView:
+            MDList:
+                id: cart_list
+
+        MDSeparator:
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: dp(64)
+            padding: dp(8)
+            spacing: dp(8)
+
+            MDLabel:
+                id: total_label
+                text: "Итого: 0 ₽"
+                font_style: "H6"
+                halign: "left"
+                valign: "middle"
+                size_hint_x: 0.4
+
+            MDRaisedButton:
+                id: clear_btn
+                text: "Очистить"
+                size_hint_x: None
+                width: dp(120)
+                pos_hint: {"center_y": 0.5}
+                on_release: root.clear_cart()
+
+            MDRaisedButton:
+                id: checkout_btn
+                text: "Оформить заказ"
+                size_hint_x: None
+                width: dp(160)
+                pos_hint: {"center_y": 0.5}
+                on_release: root.checkout()

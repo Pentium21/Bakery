@@ -1,0 +1,17 @@
+#:import ProductCard components.product_card.ProductCard
+
+<CatalogScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Bakery"
+            right_action_items: [["cart", lambda x: root.go_to_cart()]]
+
+        ScrollView:
+            MDGridLayout:
+                id: grid
+                cols: 2
+                adaptive_height: True
+                padding: dp(8)
+                spacing: dp(8)

@@ -1,0 +1,27 @@
+<ProductCard>:
+    orientation: "vertical"
+    size_hint_y: None
+    height: dp(260)
+    radius: [12]
+    elevation: 3
+    padding: dp(8)
+    ripple_behavior: True
+
+    FitImage:
+        source: root.image
+        radius: [12, 12, 0, 0]
+        size_hint_y: 0.7
+
+    MDLabel:
+        text: root.name
+        halign: "center"
+        font_style: "Subtitle1"
+        size_hint_y: None
+        height: dp(30)
+
+    MDLabel:
+        text: f"{root.price} ₽"
+        halign: "center"
+        theme_text_color: "Secondary"
+        size_hint_y: None
+        height: dp(24)

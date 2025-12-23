@@ -1,0 +1,76 @@
+<DetailScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: root.product_name if root.product_name else "Product"
+            left_action_items: [["arrow-left", lambda x: root.go_back()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: dp(16)
+                spacing: dp(14)
+                adaptive_height: True
+
+                FitImage:
+                    source: root.image
+                    size_hint_y: None
+                    height: dp(220)
+                    radius: [16]
+
+                MDLabel:
+                    text: root.product_name
+                    font_style: "H5"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    text: root.description
+                    theme_text_color: "Secondary"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    text: f"{root.price} ₽"
+                    font_style: "H6"
+                    bold: True
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                Widget:
+                    size_hint_y: None
+                    height: dp(16)
+
+                # 🔽 Блок выбора количества
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(12)
+                    size_hint_y: None
+                    height: dp(48)
+                    pos_hint: {"center_x": 0.5}
+
+                    MDIconButton:
+                        icon: "minus"
+                        on_release: root.decrease_qty()
+
+                    MDLabel:
+                        text: str(root.qty)
+                        halign: "center"
+                        valign: "middle"
+                        size_hint_x: None
+                        width: dp(40)
+                        font_style: "H6"
+
+                    MDIconButton:
+                        icon: "plus"
+                        on_release: root.increase_qty()
+
+                Widget:
+                    size_hint_y: None
+                    height: dp(16)
+
+                MDRaisedButton:
+                    text: "Add to cart"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.add_to_cart()
