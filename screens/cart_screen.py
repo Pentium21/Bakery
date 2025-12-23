@@ -1,5 +1,3 @@
-# screens/cart_screen.py
-
 from kivy.app import App
 from kivy.metrics import dp
 from kivymd.uix.screen import MDScreen
@@ -95,7 +93,6 @@ class CartScreen(MDScreen):
             CART.remove(item)
         self.refresh_cart()
 
-    # ---------- ОФОРМЛЕНИЕ ЗАКАЗА ----------
 
     def checkout(self):
         if not CART:
@@ -156,7 +153,7 @@ class CartScreen(MDScreen):
             toast("Введите имя и телефон")
             return
 
-        # 👉 здесь можно "отправить" заказ (эмуляция)
+
         print("НОВЫЙ ЗАКАЗ")
         print("Клиент:", name, phone)
         print("Товары:", CART)

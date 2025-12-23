@@ -1,7 +1,7 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
 
-# ВАЖНО: импорт ДО load_file
+
 from screens.catalog_screen import CatalogScreen
 from screens.detail_screen import DetailScreen
 from screens.cart_screen import CartScreen

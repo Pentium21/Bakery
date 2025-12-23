@@ -2,7 +2,7 @@ from kivymd.uix.screen import MDScreen
 from kivy.properties import StringProperty, NumericProperty
 from kivy.app import App
 
-from kivymd.toast import toast  # ✅ ВАЖНО: именно toast
+from kivymd.toast import toast
 
 # Общая корзина
 from data.mock_data import CART
@@ -34,7 +34,7 @@ class DetailScreen(MDScreen):
         if not self.product_name:
             return
 
-        # добавление или увеличение количества
+
         for item in CART:
             if item["name"] == self.product_name:
                 item["qty"] += self.qty
@@ -46,11 +46,10 @@ class DetailScreen(MDScreen):
                 "qty": self.qty
             })
 
-        # ✅ УВЕДОМЛЕНИЕ — КАК "ЗАКАЗ ОФОРМЛЕН"
+
         toast(f"Добавлено в корзину: {self.product_name} × {self.qty}")
 
-        # при желании можно сразу открыть корзину
-        # App.get_running_app().root.current = "cart"
+
 
     def go_back(self):
         App.get_running_app().root.current = "catalog"
